@@ -20,7 +20,7 @@ spec:
             name: wordpress
           volumeMounts:
             - name: wordpress-data
-              mountPath: /var/www
+              mountPath: /data
           env:
             - name: WORDPRESS_DB_HOST
               value: mysql-service.default.svc.cluster.local

@@ -27,6 +27,14 @@ spec:
     - ReadWriteOnce
   local:
     path: /data
+  nodeAffinity:
+   required:
+    nodeSelectorTerms:
+    - matchExpressions:
+      - key: kubernetes.io/hostname
+        operator: In
+        values:
+        - worker-vm
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

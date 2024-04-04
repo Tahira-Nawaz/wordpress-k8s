@@ -18,7 +18,9 @@ spec:
       - name: database
         image: mysql:5.7
         args:
+          #mount volume
           - "--ignore-db-dir=lost+found"
+          #add root password
         envFrom:
           - secretRef:
               name: wp-db-secrets
@@ -27,7 +29,7 @@ spec:
         volumeMounts:
         - name: mysql-data
           mountPath: /var/lib/mysql
-      volumes:  # Moved inside the spec.template.spec section
+      volumes:
       - name: mysql-data
         persistentVolumeClaim:
           claimName: mysql-volume

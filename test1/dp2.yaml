@@ -1,9 +1,10 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: wordpress
 spec:
   replicas: 1
+  serviceName: wordpress
   selector:
     matchLabels:
       app: wordpress
@@ -40,6 +41,7 @@ spec:
       resources:
         requests:
           storage: 10Gi
+
 ---
 apiVersion: v1
 kind: Service

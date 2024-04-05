@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: wordpress-mysql
   labels:
     app: wordpress
 spec:
@@ -40,7 +40,7 @@ spec:
           name: mysql
         volumeMounts:
         - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+          mountPath: /mnt
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:

@@ -22,7 +22,7 @@ spec:
     name: wp-pv-claim
     namespace: default
   capacity:
-    storage: 10Gi
+    storage: 20Gi
   accessModes:
     - ReadWriteOnce
   local:

@@ -29,7 +29,7 @@ spec:
           mountPath: /var/lib/mysql
   volumeClaimTemplates:
   - metadata:
-      name: mysql-data
+      name: mysql-pvc
     spec:
       accessModes: ["ReadWriteOnce"]
       resources:

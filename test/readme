@@ -1,0 +1,40 @@
+kubectl apply -f mysql-secret.yaml
+kubectl get secrets
+
+kubectl apply -f mysql-secret1.yaml
+kubectl get secrets
+
+
+kubectl apply -f mysql-pv.yaml
+kubectl apply -f mysql-pvc.yaml
+kubectl get pv
+kubectl get pvc
+
+kubectl apply -f mysql-deployment.yaml
+kubectl get pods
+
+kubectl apply -f mysql-service.yaml
+kubectl get svc
+
+
+kubectl exec -it <mysql-pod-name> -- bash
+mysql -u root -p
+# Enter password: mysql1234
+CREATE DATABASE wordpress;
+SHOW DATABASES;
+EXIT;
+
+
+kubectl apply -f wordpress-pv.yaml
+kubectl apply -f wordpress-pvc.yaml
+kubectl get pv
+kubectl get pvc
+
+
+
+kubectl apply -f wordpress-deployment.yaml
+kubectl get pods
+kubectl apply -f wordpress-service.yaml
+kubectl get svc
+
+kubectl get secret --namespace default wp-db-secrets -o jsonpath="{.data.MYSQL_ROOT_PASSWORD}" | base64 --decode
